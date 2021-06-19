@@ -9,3 +9,10 @@ button {
   background-color: white;
 }
 
+#drums {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 50px 50px 50px;
+  grid-template-columns: 50px 50px 50px;
+}
+
