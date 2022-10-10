@@ -16,3 +16,9 @@ button {
   grid-template-columns: 50px 50px 50px;
 }
 
+#displayDiv {
+  display: grid;
+  justify-content: center;
+  min-height: 100;
+}
+

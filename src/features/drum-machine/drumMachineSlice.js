@@ -14,7 +14,21 @@ export const drumMachineSlice = createSlice({
       { name: "X", audio: "side_stick_1" },
       { name: "C", audio: "Cev_H2" },
     ],
+    pressedDrumName: "",
+  },
+  reducers: {
+    pressDrum: (state, action) => {
+      const newState = Object.assign({}, state);
+      var drum = newState.drums.find(d => d.name == action.payload.toUpperCase());;
+      if (drum) {
+        var drumName = drum.audio;
+        newState.pressedDrumName = drumName;
+      }
+      return newState;
+    },
   },
 });
+
+export const { pressDrum } = drumMachineSlice.actions;
 
 export default drumMachineSlice.reducer;

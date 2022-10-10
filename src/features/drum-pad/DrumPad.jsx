@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const DrumPad = (props) => {
   const { name, audio } = props;
@@ -8,6 +8,12 @@ const DrumPad = (props) => {
     beepRef.current.load();
     beepRef.current.play();
   };
+
+  useEffect(() => {
+    if (props.pressedKey.toUpperCase() === name) {
+      handleOnClick();
+    }
+  }, [ props.pressedKey, name]);
 
   return (
     <div className="drum-pad" id="{name}">
