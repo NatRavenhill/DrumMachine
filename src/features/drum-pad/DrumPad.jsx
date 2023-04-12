@@ -1,23 +1,25 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
+import { pressDrum } from '../drum-machine/drumMachineSlice.js'
+import { useDispatch } from 'react-redux';
 
 const DrumPad = (props) => {
   const { name, audio } = props;
   const beepRef = React.createRef();
+  const dispatch = useDispatch()
 
   const handleOnClick = () => {
-    beepRef.current.load();
-    beepRef.current.play();
+    dispatch(pressDrum(name));
+    
   };
 
-  useEffect(() => {
-    if (props.pressedKey.toUpperCase() === name) {
-      handleOnClick();
-    }
-  }, [ props.pressedKey, name]);
+   useEffect(() => {
+    beepRef.current.load();
+    beepRef.current.play();
+   }, [ props.pressedKey, beepRef]);
 
   return (
     <div className="drum-pad" id="{name}">
-      <button  onClick={handleOnClick}>
+      <button onClick={handleOnClick}>
         {name}
       </button>
       <audio

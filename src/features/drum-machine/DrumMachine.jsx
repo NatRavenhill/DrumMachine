@@ -3,12 +3,14 @@ import Display from './../display/Display';
 import DrumPad from './../drum-pad/DrumPad';
 import { useSelector } from 'react-redux';
 
+
 const DrumMachine = () => {
   const [ pressedKey, setPressedKey ] = useState('');
   const drums = useSelector((state) => state.drumMachine.drums);
 
   const handleKeyPress = (e) => {
     setPressedKey(e.key);
+    
   }
 
   return (

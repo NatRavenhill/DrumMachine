@@ -19,7 +19,7 @@ export const drumMachineSlice = createSlice({
   reducers: {
     pressDrum: (state, action) => {
       const newState = Object.assign({}, state);
-      var drum = newState.drums.find(d => d.name == action.payload.toUpperCase());;
+      var drum = newState.drums.find(d => d.name === action.payload.toUpperCase());;
       if (drum) {
         var drumName = drum.audio;
         newState.pressedDrumName = drumName;

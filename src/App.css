@@ -22,3 +22,7 @@ button {
   min-height: 100;
 }
 
+#display {
+  text-align: center;
+  background-color: #D3FFF6;
+}
